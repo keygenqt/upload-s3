@@ -45,7 +45,7 @@ class UploadS3 extends Widget
         // or other file type like "image/jpeg" for JPEG image,
         // or "binary/octet-stream" for binary file
         $mime = mime_content_type($path);
-        if (strpos($mime, 'image') === false) {
+        if (strpos($mime, 'image') === false && strpos($mime, 'video') === false) {
             $mime = "binary/octet-stream";
         }
 
