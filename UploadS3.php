@@ -7,10 +7,12 @@ use yii\base\Widget;
 
 class UploadS3 extends Widget
 {
-    public $debug = true;
+    private $debug = true;
+
     public $key;
     public $secret;
     public $bucket;
+    public $static_url;
 
     public function upload($path, $name)
     {
@@ -108,6 +110,10 @@ Authorization: AWS {$this->key}:" . $this->amazon_hmac($string2sign)."\n\n";
         }
 
         fclose($fp);
+
+        if ($this->static_url) {
+            return $this->static_url . $name;
+        }
 
         return "http://s3.amazonaws.com/{$this->bucket}/{$name}";
     }

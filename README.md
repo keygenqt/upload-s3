@@ -31,7 +31,8 @@ Config:
     'class' => 'keygenqt\uploadS3\UploadS3',
     'key' => '...',
     'secret' => '...',
-    'bucket' => '...'
+    'bucket' => '...',
+    'static_url' => 'http://domen.com/', (optional)
 ]
 ```
 
